@@ -16,9 +16,9 @@ class FighterService {
     Task done:
     - get fignter data by id from json files
     */
+
+    // eslint-disable-next-line class-methods-use-this
     async getFighterDetails(id) {
-        // todo: implement this method
-        // endpoint - `details/fighter/${id}.json`;
         const endpoint = `../../../resources/api/details/fighter/${id}.json`;
         const response = await fetch(endpoint);
         const data = await response.json();

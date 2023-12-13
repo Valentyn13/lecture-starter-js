@@ -30,7 +30,6 @@ export function criticalHit(fighter) {
 
 export function getDamage(attacker, defender, isBlockExist) {
     let attackPower;
-
     if (isBlockExist) {
         attackPower = getHitPower(attacker) - getBlockPower(defender) * dodgeChance();
     } else {
@@ -87,7 +86,6 @@ export async function fight(firstFighter, secondFighter) {
                 case PlayerOneAttack:
                     if (!firstFighterBlockActive && !e.repeat) {
                         const damage = getDamage(firstFighter, secondFighter, secondFighterBlockActive);
-                        console.log(`Damage: ${damage}, isBlockExist: ${secondFighterBlockActive}`);
                         secondFighterHealth -= damage;
                     }
 
@@ -95,7 +93,6 @@ export async function fight(firstFighter, secondFighter) {
                 case PlayerTwoAttack:
                     if (!secondFighterBlockActive && !e.repeat) {
                         const damage = getDamage(secondFighter, firstFighter, firstFighterBlockActive);
-                        console.log(`Damage: ${damage}, isBlockExist: ${secondFighterBlockActive}`);
                         firstFighterHealth -= damage;
                     }
                     break;

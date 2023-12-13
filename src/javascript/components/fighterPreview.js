@@ -23,7 +23,6 @@ export function createFighterImage(fighter) {
 
     return imgElement;
 }
-// todo: show fighter info (image, name, health, etc.)
 export function createFighterPreview(fighter, position) {
     const positionClassName = position === 'right' ? 'fighter-preview___right' : 'fighter-preview___left';
     const fighterElement = createElement({
