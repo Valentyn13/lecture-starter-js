@@ -61,10 +61,12 @@ function createArena(selectedFighters) {
     return arena;
 }
 
+/*
+Task done:
+ - call fight fucntion and create winner logic
+*/
 export default function renderArena(selectedFighters) {
     const [firstFighter, secondFighter] = selectedFighters;
-    console.log('Arena fighters data');
-    console.log(selectedFighters);
     const root = document.getElementById('root');
     const arena = createArena(selectedFighters);
 
@@ -72,9 +74,5 @@ export default function renderArena(selectedFighters) {
     root.append(arena);
 
     const winner = fight(firstFighter, secondFighter);
-
     winner.then(winnerData => showWinnerModal(winnerData));
-    // todo:
-    // - start the fight
-    // - when fight is finished show winner
 }

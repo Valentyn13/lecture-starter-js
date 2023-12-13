@@ -1,8 +1,11 @@
 import { createFighterImage } from '../fighterPreview';
 import showModal from './modal';
 
+/*
+Task done:
+- call showModal function and display the winner
+*/
 export default function showWinnerModal(fighter) {
-    // call showModal function
     const winnerImage = createFighterImage(fighter);
     const showModalData = {
         title: `${fighter.name} WIN THE BATTLE !`,

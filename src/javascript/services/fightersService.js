@@ -1,5 +1,5 @@
 import callApi from '../helpers/apiHelper';
-// import f from '../../../resources/api/details/fighter/1.json'
+
 class FighterService {
     #endpoint = 'fighters.json';
 
@@ -12,6 +12,10 @@ class FighterService {
         }
     }
 
+    /*
+    Task done:
+    - get fignter data by id from json files
+    */
     async getFighterDetails(id) {
         // todo: implement this method
         // endpoint - `details/fighter/${id}.json`;

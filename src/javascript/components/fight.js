@@ -84,27 +84,27 @@ export async function fight(firstFighter, secondFighter) {
     return new Promise(resolve => {
         document.addEventListener('keydown', e => {
             switch (e.code) {
-                case PlayerOneAttack: // A
-                    if (!firstFighterBlockActive) {
+                case PlayerOneAttack:
+                    if (!firstFighterBlockActive && !e.repeat) {
                         const damage = getDamage(firstFighter, secondFighter, secondFighterBlockActive);
                         console.log(`Damage: ${damage}, isBlockExist: ${secondFighterBlockActive}`);
                         secondFighterHealth -= damage;
                     }
 
                     break;
-                case PlayerTwoAttack: // J
-                    if (!secondFighterBlockActive) {
+                case PlayerTwoAttack:
+                    if (!secondFighterBlockActive && !e.repeat) {
                         const damage = getDamage(secondFighter, firstFighter, firstFighterBlockActive);
                         console.log(`Damage: ${damage}, isBlockExist: ${secondFighterBlockActive}`);
                         firstFighterHealth -= damage;
                     }
                     break;
 
-                case PlayerOneBlock: // D
+                case PlayerOneBlock:
                     firstFighterBlockActive = true;
                     break;
 
-                case PlayerTwoBlock: // L
+                case PlayerTwoBlock:
                     secondFighterBlockActive = true;
                     break;
 
@@ -115,7 +115,6 @@ export async function fight(firstFighter, secondFighter) {
 
                     if (fighterOneCriticalAttackReady() && !e.repeat && criticalAttackDelayOneEnd) {
                         const damage = criticalHit(firstFighter);
-                        console.log(damage);
                         secondFighterHealth -= damage;
                         criticalAttackDelayOneEnd = false;
                         setTimeout(() => {
@@ -147,10 +146,10 @@ export async function fight(firstFighter, secondFighter) {
             rightFighterIndicator.style.width = `${rightHealhBarWidth}%`;
 
             if (firstFighterHealth <= 0) {
-                leftFighterIndicator.style.width = '0%';
+                leftFighterIndicator.style.width = '0px';
                 resolve(secondFighter);
             } else if (secondFighterHealth <= 0) {
-                rightFighterIndicator.style.width = '0%';
+                rightFighterIndicator.style.width = '0px';
                 resolve(firstFighter);
             }
         });

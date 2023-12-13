@@ -55,7 +55,9 @@
   margin: 0 10px;
   overflow: hidden;
 }
-
+#right-fighter-indicator{
+  margin-left: auto;
+}
 .arena___health-bar {
   height: 100%;
   width: 100%;
