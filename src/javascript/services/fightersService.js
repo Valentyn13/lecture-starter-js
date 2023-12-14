@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import callApi from '../helpers/apiHelper';
 
 class FighterService {
@@ -16,8 +17,6 @@ class FighterService {
     Task done:
     - get fignter data by id from json files
     */
-
-    // eslint-disable-next-line class-methods-use-this, consistent-return
     async getFighterDetails(id) {
         const endpoint = `../../../resources/api/details/fighter/${id}.json`;
         try {
@@ -25,7 +24,7 @@ class FighterService {
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error(error);
+            return console.error(error);
         }
     }
 }

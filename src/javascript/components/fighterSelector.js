@@ -8,7 +8,7 @@ const fighterDetailsMap = new Map();
 
 /*
 Task done:
- - get fighter info from fighterDetailsMap
+ - get fighter info from fighter service
 */
 export async function getFighterInfo(fighterId) {
     const fighterDetails = await fighterService.getFighterDetails(fighterId);
