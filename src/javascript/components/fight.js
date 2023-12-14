@@ -21,7 +21,7 @@ export function getHitPower(fighter) {
 }
 
 export function getBlockPower(fighter) {
-    return fighter.defense;
+    return fighter.defense * dodgeChance();
 }
 
 export function criticalHit(fighter) {
@@ -31,7 +31,7 @@ export function criticalHit(fighter) {
 export function getDamage(attacker, defender, isBlockExist) {
     let attackPower;
     if (isBlockExist) {
-        attackPower = getHitPower(attacker) - getBlockPower(defender) * dodgeChance();
+        attackPower = getHitPower(attacker) - getBlockPower(defender);
     } else {
         attackPower = getHitPower(attacker);
     }

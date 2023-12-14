@@ -17,12 +17,16 @@ class FighterService {
     - get fignter data by id from json files
     */
 
-    // eslint-disable-next-line class-methods-use-this
+    // eslint-disable-next-line class-methods-use-this, consistent-return
     async getFighterDetails(id) {
         const endpoint = `../../../resources/api/details/fighter/${id}.json`;
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        return data;
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 
