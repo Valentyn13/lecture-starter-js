@@ -3,6 +3,7 @@ import createElement from '../../helpers/domHelper';
 function getModalContainer() {
     return document.getElementById('root');
 }
+
 function hideModal() {
     const modal = document.getElementsByClassName('modal-layer')[0];
     modal?.remove();
@@ -20,7 +21,10 @@ function createHeader(title, onClose) {
         hideModal();
         onClose();
     };
-    closeButton.addEventListener('click', close);
+    closeButton.addEventListener('click', () => {
+        window.location.reload();
+        close();
+    });
     headerElement.append(titleElement, closeButton);
 
     return headerElement;
